@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details | TRAVELORA - Insights & Stories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+    <style>
+        .blog-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+        }
+
+        .blog-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .blog-meta-hero {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: -5rem auto 5rem;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 3;
+        }
+
+        @media (max-width: 768px) {
+            .blog-content {
+                margin-top: -3rem;
+                padding: 2rem 1.5rem;
+                border-radius: var(--radius-md) var(--radius-md) 0 0;
+            }
+        }
+
+        .blog-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .related-posts {
+            background: var(--bg-light);
+            padding: 5rem 0;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: var(--secondary);
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+        <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="login.html">Log In</a>
+                        <a href="login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="blog-container">
+        <!-- Default Content / Loading State -->
+        <section class="blog-hero"
+            style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=2000');">
+            <a href="blog.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+            <div class="blog-hero-content">
+                <div class="blog-meta-hero">
+                    <span><i class="fa-solid fa-calendar"></i> <span id="post-date">Oct 12, 2025</span></span>
+                    <span><i class="fa-solid fa-folder"></i> <span id="post-category">Travel Tips</span></span>
+                </div>
+                <h1 id="post-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem;">10 Essential Items
+                    for Your Carry-On</h1>
+                <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 1.5rem;">
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=random" id="author-img" alt="Author"
+                        style="width: 40px; height: 40px; border-radius: 50%;">
+                    <span id="post-author">By Admin</span>
+                </div>
+            </div>
+        </section>
+
+        <article class="blog-content" id="post-body">
+            <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">
+                Packing efficiently is an art form. Whether you're a seasoned globetrotter or a first-time flyer, what
+                you bring in your carry-on can make or break your journey.
+            </p>
+
+            <p>We've all been there—stuck on a long-haul flight realizing we forgot our headphones, or desperately
+                searching for a pen to fill out customs forms. To help you travel smoother, smarter, and lighter, we’ve
+                compiled the definitive list of 10 items you should never board a plane without.</p>
+
+            <h2>1. Noise-Canceling Headphones</h2>
+            <p>The hum of the engine, the crying baby in row 12, the chatter of fellow passengers—airplanes are noisy
+                places.Investing in a quality pair of noise-canceling headphones acts as a sanctuary for your ears,
+                allowing you to sleep, work, or relax in peace.</p>
+
+            <h2>2. A Reusable Water Bottle</h2>
+            <p>Dehydration is real at 30,000 feet. Bring an empty reusable bottle through security and fill it up at the
+                gate. It’s eco-friendly and ensures you stay hydrated without waiting for the beverage cart.</p>
+
+            <div class="highlight-box">
+                <h3 style="margin-top: 0; display: flex; align-items: center; gap: 10px;"><i
+                        class="fa-solid fa-lightbulb" style="color: var(--primary);"></i> Pro Tip</h3>
+                <p style="margin-bottom: 0;">Always pack a spare change of clothes in your carry-on. If your checked
+                    luggage gets lost or delayed, you'll be thankful for fresh underwear and a clean shirt.</p>
+            </div>
+
+            <h2>3. Portable Power Bank</h2>
+            <p>Not all planes have USB ports, and even if they do, they don't always work. A fully charged power bank
+                ensures your phone and tablet stay alive for entertainment, maps, and ride-hailing apps upon arrival.
+            </p>
+
+            <h2>4. Sanitizing Wipes</h2>
+            <p>Let's be honest, tray tables aren't always cleaned thoroughly between flights. A quick wipe down of your
+                seat area gives you peace of mind and keeps germs at bay.</p>
+
+            <h2>5. Travel Pillow and Eye Mask</h2>
+            <p>Catching z's in economy class is a challenge. A supportive neck pillow and a silk eye mask can simulate a
+                dark, comfortable environment, helping you tackle jet lag before you even land.</p>
+
+            <h3>Summary</h3>
+            <p>Packing these essentials won't just improve your comfort; they'll give you a sense of control over your
+                travel environment. So next time you zip up your bag, double-check this list and fly with confidence.
+            </p>
+        </article>
+
+        <section class="related-posts">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h3 class="section-title" style="margin-bottom: 0;">More Readings</h3>
+                    <a href="blog.html" class="btn btn-link">View All Posts <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="package-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Related posts will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="cta-banner"
+                    style="background: var(--primary); padding: 4rem; border-radius: var(--radius-lg); text-align: center; color: white;">
+                    <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">Inspired to Travel?</h2>
+                    <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">Turn these stories into your own
+                        memories. Explore our latest packages.</p>
+                    <a href="destinations.html" class="btn btn-secondary"
+                        style="background: white; color: var(--primary); padding: 1rem 3rem;">Start Your Journey</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../assets/js/footer.js"></script>
+    
+    <script>
+        // Simple mock data for demonstration. In a real app this would come from a backend or JSON file.
+        const blogPosts = {
+            '10-essential-items': {
+                title: '10 Essential Items for Your Carry-On',
+                category: 'Travel Tips',
+                date: 'Oct 12, 2025',
+                author: 'Admin',
+                image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">Packing efficiently is an art form. Whether you're a seasoned globetrotter or a first-time flyer, what you bring in your carry-on can make or break your journey.</p>
+                    <p>We've all been there—stuck on a long-haul flight realizing we forgot our headphones, or desperately searching for a pen to fill out customs forms. To help you travel smoother, smarter, and lighter, we’ve compiled the definitive list of 10 items you should never board a plane without.</p>
+                    <h2>1. Noise-Canceling Headphones</h2>
+                    <p>The hum of the engine, the crying baby in row 12, the chatter of fellow passengers—airplanes are noisy places.Investing in a quality pair of noise-canceling headphones acts as a sanctuary for your ears.</p>
+                    <h2>2. A Reusable Water Bottle</h2>
+                    <p>Dehydration is real at 30,000 feet. Bring an empty reusable bottle through security and fill it up at the gate. It’s eco-friendly and ensures you stay hydrated without waiting for the beverage cart.</p>
+                    <div class="highlight-box">
+                        <h3 style="margin-top: 0; display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-lightbulb" style="color: var(--primary);"></i> Pro Tip</h3>
+                        <p style="margin-bottom: 0;">Always pack a spare change of clothes in your carry-on. If your checked luggage gets lost or delayed, you'll be thankful for fresh underwear and a clean shirt.</p>
+                    </div>
+                    <h2>3. Portable Power Bank</h2>
+                    <p>Not all planes have USB ports, and even if they do, they don't always work. A fully charged power bank ensures your phone and tablet stay alive for entertainment, maps, and ride-hailing apps upon arrival.</p>
+                `
+            },
+            'hidden-gems-kyoto': {
+                title: 'Hidden Gems in Kyoto, Japan',
+                category: 'Destinations',
+                date: 'Oct 05, 2025',
+                author: 'Travel Expert',
+                image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">Kyoto is one of the most visited cities in the world, and for good reason. But beyond the Golden Pavilion and Fushimi Inari, a quieter, more ancient city awaits.</p>
+                    <p>Escape the crowds and discover the serene temples, bamboo groves, and tea houses that only locals know about. Here is your guide to the secret side of Japan's ancient capital.</p>
+                    <h2>1. Otagi Nenbutsu-ji Temple</h2>
+                    <p>Located in the Arashiyama district but far from the monkey park crowds, this temple features 1,200 unique rakan statues, each with a different facial expression. It's a whimsical and touching site covered in moss.</p>
+                    <h2>2. The Philosopher’s Path at Dawn</h2>
+                    <p>While famous for cherry blossoms, this canal-side path is magical year-round. Walk it at 6 AM to experience true Zen silence before the tourists arrive.</p>
+                 `
+            },
+            'desert-palace': {
+                title: 'A Night in a Desert Palace',
+                category: 'Luxury',
+                date: 'Sep 28, 2025',
+                author: 'Luxury Hunter',
+                image: 'https://images.unsplash.com/photo-1540339830205-44e3d3a6c5f5?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">Silence. Absolute, deafening silence. That is the first thing you notice when you arrive at Qasr Al Sarab by Anantara, deep in the Empty Quarter of the Liwa Desert.</p>
+                    <p>Rising from the flame-colored dunes like a mirage, this resort redefines luxury. We spent three nights here, and it changed our perception of desert travel forever.</p>
+                    <h2>The Arrival</h2>
+                    <p>After a two-hour drive from Abu Dhabi, the road simply ends at the fortress gates. You are greeted with dates, Arabic coffee, and a cold towel—traditional hospitality perfected.</p>
+                    <h2>Sunset Dune Bashing</h2>
+                    <p>For the adventurous, the resort offers 4x4 dune bashing. It's a heart-pounding roller coaster ride on sand, culminating in watching the sun dip below the endless horizon.</p>
+                `
+            },
+            'solo-travel-europe': {
+                title: 'Ultimate Guide to Solo Travel in Europe',
+                category: 'Adventure',
+                date: 'Sep 20, 2025',
+                author: 'Solo Way',
+                image: 'https://images.unsplash.com/photo-1499856871940-a09627c6dcf6?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">Traveling solo is one of the most liberating experiences you can have. And there is no better continent to start than Europe.</p>
+                    <p>With its efficient train systems, safe hostels, and rich history, Europe is a playground for the independent wanderer. Here is how to navigate it confidently.</p>
+                    <h2>1. The Eurail Pass</h2>
+                    <p>Unless you are sticking to one country, get a Eurail pass. It gives you the flexibility to wake up in Paris and decide to sleep in Amsterdam.</p>
+                    <h2>2. Hostel Life</h2>
+                    <p>Hostels aren't just cheap accommodation; they are social hubs. Look for highly-rated hostels with common areas and organized events to meet fellow travelers.</p>
+                `
+            },
+            'sustainable-safari': {
+                title: 'How to Choose a Sustainable Safari',
+                category: 'Eco Travel',
+                date: 'Sep 15, 2025',
+                author: 'Eco Warrior',
+                image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">An African safari is a bucket-list item for many, but it's crucial to ensure your visit helps rather than harms.</p>
+                    <p>Sustainable tourism supports conservation efforts and empowers local communities. Here is what to look for when booking your lodge and tour operator.</p>
+                    <h2>Community Involvement</h2>
+                    <p>Does the lodge employ local staff? Do they support local schools or clinics? True sustainability uplifts the people who call the land home.</p>
+                    <h2>Conservation Fees</h2>
+                    <p>Be wary of operators who cut corners on park fees. These fees are the lifeblood of anti-poaching units and habitat restoration.</p>
+                `
+            },
+            'greek-islands': {
+                title: 'Island Hopping in Greece: A Beginner\'s Guide',
+                category: 'Destinations',
+                date: 'Sep 08, 2025',
+                author: 'Island Hopper',
+                image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">With thousands of islands to choose from, planning a Greek island-hopping adventure can be overwhelming.</p>
+                    <p>From the party vibes of Mykonos to the dramatic calderas of Santorini and the quiet villages of Naxos, here is how to create the perfect itinerary.</p>
+                    <h2>Grouping by Archipelago</h2>
+                    <p>To save travel time, stick to one island group per trip. The Cyclades are famous for white-washed houses, while the Ionian islands offer lush greenery and Venetian architecture.</p>
+                    <h2>Ferry Logistics</h2>
+                    <p>Book high-speed ferries for long distances, but don't shy away from the slower 'Blue Star' ferries. They are stable, cheaper, and offer great views from the deck.</p>
+                `
+            },
+            'digital-nomad': {
+                title: 'Top 5 Cities for Digital Nomads in 2026',
+                category: 'Lifestyle',
+                date: 'Aug 30, 2025',
+                author: 'Remote Worker',
+                image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">The world is your office. As remote work becomes the norm, some cities are emerging as clear favorites for the laptop lifestyle.</p>
+                    <p>We evaluated cities based on internet speed, cost of living, safety, and community. Here are the top contenders for 2026.</p>
+                    <h2>1. Lisbon, Portugal</h2>
+                    <p>With its dedicated digital nomad visa, sunny weather, and vibrant tech scene, Lisbon remains unbeatable.</p>
+                    <h2>2. Chiang Mai, Thailand</h2>
+                    <p>The OG nomad hub is back. Unbeatable food, affordable living, and a massive community of entrepreneurs make it a top pick.</p>
+                `
+            },
+            'packing-light': {
+                title: 'How to Travel for a Month with Carry-On Only',
+                category: 'Travel Tips',
+                date: 'Aug 22, 2025',
+                author: 'Minimalist',
+                image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">Freedom is traveling without a heavy suitcase dragging you down. It sounds impossible, but traveling for a month with just a carry-on is entirely doable.</p>
+                    <p>The secret lies in fabrics, color palettes, and the willingness to do laundry. Here is our step-by-step guide to packing light.</p>
+                    <h2>The Capsule Wardrobe</h2>
+                    <p>Stick to neutral colors—black, white, navy, and grey. Ensure every top matches every bottom. This maximizes outfit combinations with minimal items.</p>
+                    <h2>Merino Wool</h2>
+                    <p>This miracle fabric is odor-resistant, temperature-regulating, and quick-drying. You can wear a merino tee for days without it smelling.</p>
+                `
+            },
+            'culinary-paris': {
+                title: 'A Culinary Tour of Paris',
+                category: 'Foodie',
+                date: 'Aug 15, 2025',
+                author: 'Chef Pierre',
+                image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=2000',
+                content: `
+                    <p class="lead" style="font-size: 1.3rem; font-weight: 500; font-family: serif; color: var(--secondary);">Paris is a city that must be tasted to be understood. It's not just about Michelin stars; it's about the perfect baguette and the corner bistro.</p>
+                    <p>We ate our way through the 20 arrondissements to bring you this list of essential eats in the French capital.</p>
+                    <h2>The Perfect Croissant</h2>
+                    <p>Head to Du Pain et des Idées for their escargot pistache, but don't leave without a classic butter croissant. It should shatter upon the first bite.</p>
+                    <h2>Classic Bistro Dining</h2>
+                    <p>Skip the tourist traps near the Eiffel Tower. Instead, find a 'bouillon'—traditional worker's restaurants serving classic dishes like oeuf mayonnaise and steak frites at unbeatable prices.</p>
+                `
+            }
+        };
+
+        // URL Parameter handling to load dynamic content
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        if (postId && blogPosts[postId]) {
+            const post = blogPosts[postId];
+            document.title = `${post.title} | TRAVELORA Blog`;
+            document.getElementById('post-title').innerText = post.title;
+            document.getElementById('post-category').innerText = post.category;
+            document.getElementById('post-date').innerText = post.date;
+            document.getElementById('post-author').innerText = `By ${post.author}`;
+            document.querySelector('.blog-hero').style.backgroundImage = `url('${post.image}')`;
+            document.getElementById('post-body').innerHTML = post.content;
+        }
+        // Default content is already in the HTML for the "10 items" post, serving as a template fallback
+
+        // --- Dynamic Related Posts Logic ---
+        const currentId = postId || '10-essential-items';
+        const allPostIds = Object.keys(blogPosts);
+
+        // Filter out current post
+        const availablePosts = allPostIds.filter(id => id !== currentId);
+
+        // Shuffle and pick 3 related posts
+        const relatedIds = availablePosts.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+        const relatedGrid = document.querySelector('.related-posts .package-grid');
+        if (relatedGrid && relatedIds.length > 0) {
+            relatedGrid.innerHTML = relatedIds.map(id => {
+                const post = blogPosts[id];
+                return `
+                    <div class="package-card blog-card" onclick="window.location.href='blog-details.html?id=${id}'"
+                        style="cursor: pointer; border: 1px solid var(--border); box-shadow: none; display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="${post.image}"
+                                alt="${post.title}" style="height: 220px; object-fit: cover; width: 100%; border-radius: var(--radius-md) var(--radius-md) 0 0;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">${post.category}</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <h4 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">${post.title}</h4>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=${id}" style="color: var(--primary); font-size: 0.9rem; font-weight: 600;">Read Story</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    </script>
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

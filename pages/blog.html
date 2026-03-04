@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog | TRAVELORA - Insights & Stories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+    <style>
+        .blog-filter {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+        }
+
+        .filter-btn:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        .package-card.hidden {
+            display: none !important;
+        }
+
+        .package-grid {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+        <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="login.html">Log In</a>
+                        <a href="login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Travel Insights & Stories</h1>
+                <p class="section-subtitle">Discover tips, destination guides, and travel news from our global team of
+                    writers.</p>
+
+                <div class="blog-filter">
+                    <button class="filter-btn active" data-category="all">All Posts</button>
+                    <button class="filter-btn" data-category="Destinations">Destinations</button>
+                    <button class="filter-btn" data-category="Travel Tips">Travel Tips</button>
+                    <button class="filter-btn" data-category="Luxury">Luxury</button>
+                    <button class="filter-btn" data-category="Adventure">Adventure</button>
+                    <div style="flex: 1; min-width: 250px; position: relative;">
+                        <input type="text" placeholder="Search articles..."
+                            style="width: 100%; padding: 0.8rem 1rem 0.8rem 2.8rem; border-radius: 50px; border: 1px solid var(--border);">
+                        <i class="fa-solid fa-magnifying-glass"
+                            style="position: absolute; left: 1.2rem; top: 1rem; color: var(--text-muted);"></i>
+                    </div>
+                </div>
+
+                <div class="package-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Blog Card 1 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=10-essential-items'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800"
+                                alt="Carry-on items" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">Travel Tips</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Oct 12, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Admin</span>
+                            </div>
+                            <h3 class="card-title">10 Essential Items for Your Carry-On</h3>
+                            <p class="text-muted" style="flex: 1;">Master the art of packing with these must-have items
+                                for a stress-free flight experience...</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=10-essential-items"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 2 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=hidden-gems-kyoto'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=800"
+                                alt="Kyoto, Japan" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">Destinations</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Oct 05, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Travel Expert</span>
+                            </div>
+                            <h3 class="card-title">Hidden Gems in Kyoto, Japan</h3>
+                            <p class="text-muted" style="flex: 1;">Escape the crowds and discover the serene temples and
+                                tea houses that only locals know about...</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=hidden-gems-kyoto"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 3 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=desert-palace'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1540339830205-44e3d3a6c5f5?auto=format&fit=crop&q=80&w=800"
+                                alt="Desert Palace" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">Luxury</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Sep 28, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Luxury Hunter</span>
+                            </div>
+                            <h3 class="card-title">A Night in a Desert Palace</h3>
+                            <p class="text-muted" style="flex: 1;">Experience the magic of the Sahara with 5-star
+                                comfort and unmatched hospitality...</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=desert-palace"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 4 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=solo-travel-europe'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1499856871940-a09627c6dcf6?auto=format&fit=crop&q=80&w=800"
+                                alt="Solo Travel" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">Adventure</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Sep 20, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Solo Way</span>
+                            </div>
+                            <h3 class="card-title">Ultimate Guide to Solo Travel in Europe</h3>
+                            <p class="text-muted" style="flex: 1;">Navigating trains, hostels, and languages on your
+                                own. Why your next trip should be solo.</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=solo-travel-europe"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 5 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=sustainable-safari'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800"
+                                alt="Safari" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge" style="left: 1rem; right: auto; background: var(--secondary);">Eco
+                                Travel</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Sep 15, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Eco Warrior</span>
+                            </div>
+                            <h3 class="card-title">How to Choose a Sustainable Safari</h3>
+                            <p class="text-muted" style="flex: 1;">Ensuring your African adventure supports local
+                                conservation efforts and communities.</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=sustainable-safari"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 6 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=greek-islands'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800"
+                                alt="Santorini" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">Destinations</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Sep 08, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Island Hopper</span>
+                            </div>
+                            <h3 class="card-title">Island Hopping in Greece: A Beginner's Guide</h3>
+                            <p class="text-muted" style="flex: 1;">Ferries, schedules, and the best islands to visit for
+                                sunsets, parties, or silence.</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=greek-islands"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 7 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=digital-nomad'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"
+                                alt="Digital Nomad" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">Lifestyle</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Aug 30, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Remote Worker</span>
+                            </div>
+                            <h3 class="card-title">Top 5 Cities for Digital Nomads in 2026</h3>
+                            <p class="text-muted" style="flex: 1;">Where to find the best Wi-Fi, coffee, and community
+                                while working remotely.</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=digital-nomad"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 8 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=packing-light'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+                                alt="Packing" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">Travel Tips</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Aug 22, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Minimalist</span>
+                            </div>
+                            <h3 class="card-title">How to Travel for a Month with Carry-On Only</h3>
+                            <p class="text-muted" style="flex: 1;">Say goodbye to checked baggage fees and waiting at
+                                the carousel.</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=packing-light"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 9 -->
+                    <div class="package-card blog-card"
+                        onclick="window.location.href='blog-details.html?id=culinary-paris'"
+                        style="cursor: pointer; box-shadow: none; border: 1px solid var(--border); display: flex; flex-direction: column; height: 100%;">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=800"
+                                alt="Paris Food" style="height: 220px; object-fit: cover; width: 100%;"
+                                onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800';">
+                            <span class="card-badge"
+                                style="left: 1rem; right: auto; background: var(--secondary);">Foodie</span>
+                        </div>
+                        <div class="card-body" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> Aug 15, 2025</span>
+                                <span><i class="fa-solid fa-user"></i> Chef Pierre</span>
+                            </div>
+                            <h3 class="card-title">A Culinary Tour of Paris</h3>
+                            <p class="text-muted" style="flex: 1;">From croissants to coq au vin: the best bistros and
+                                bakeries in the city of lights.</p>
+                            <div style="margin-top: auto;">
+                                <a href="blog-details.html?id=culinary-paris"
+                                    style="color: var(--primary); font-weight: 700; display: inline-block; margin-top: 1rem;">Read
+                                    Full Story <i class="fa-solid fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 5rem;">
+                    <a href="#" class="btn btn-outline">Load More Posts</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/footer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.package-card');
+            const blogGrid = document.querySelector('.package-grid');
+
+            const filterPosts = (category) => {
+                // Smooth fade effect
+                blogGrid.style.opacity = '0';
+
+                setTimeout(() => {
+                    blogCards.forEach(card => {
+                        const postCategory = card.querySelector('.card-badge').textContent.trim();
+                        if (category === 'all' || postCategory === category) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+
+                    // Update active button
+                    filterBtns.forEach(btn => {
+                        if (btn.getAttribute('data-category') === category) {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    });
+
+                    blogGrid.style.opacity = '1';
+
+                    // Update URL without reloading
+                    const newUrl = category === 'all' ? 'blog.html' : `blog.html?category=${encodeURIComponent(category)}`;
+                    window.history.pushState({ category }, '', newUrl);
+                }, 300);
+            };
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.getAttribute('data-category');
+                    filterPosts(category);
+                });
+            });
+
+            // Handle initial load from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            if (categoryParam) {
+                filterPosts(categoryParam);
+            }
+
+            // Handle back/forward navigation
+            window.addEventListener('popstate', (e) => {
+                const category = e.state ? e.state.category : 'all';
+                filterPosts(category);
+            });
+        });
+    </script>
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

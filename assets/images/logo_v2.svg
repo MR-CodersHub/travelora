@@ -1,0 +1,9 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern Location Pin + Paper Plane Concept -->
+  <circle cx="25" cy="25" r="22" fill="#2563eb" fill-opacity="0.1"/>
+  <path d="M25 38C25 38 35 28 35 20C35 14.4772 30.5228 10 25 10C19.4772 10 15 14.4772 15 20C15 28 25 38 25 38Z" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21 21L29 17L25 25L24 21L21 21Z" fill="#2563eb" stroke="#2563eb" stroke-width="1" stroke-linejoin="round"/>
+  
+  <!-- Wordmark -->
+  <text x="50" y="32" font-family="Inter, sans-serif" font-weight="800" font-size="24" letter-spacing="0.05em" fill="#0f172a">TRAVELORA</text>
+</svg>

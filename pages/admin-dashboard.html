@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | TRAVELORA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --top-header-height: 80px;
+            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+
+        body {
+            background-color: #f1f5f9;
+            display: block;
+            margin: 0;
+            min-height: 100vh;
+            color: var(--secondary);
+            /* No overflow-x:hidden here — fix overflow at component level */
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--secondary);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar-header {
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-header a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .sidebar-header img {
+            height: 32px;
+        }
+
+        .sidebar-header span {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .sidebar-menu {
+            padding: 1.5rem 1rem;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.85rem 1.25rem;
+            color: rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.4rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .menu-item.active {
+            background: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .menu-item i {
+            width: 20px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #logoutBtn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fb7185;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        #logoutBtn:hover {
+            background: rgba(251, 113, 133, 0.1);
+            transform: translateX(5px);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .top-header {
+            height: var(--top-header-height);
+            background: white;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            /* Above sidebar overlay */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            gap: 12px;
+            box-sizing: border-box;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0.75rem;
+            flex-shrink: 0;
+            min-width: 0;
+        }
+
+        /* Brand in header — only on tablet/mobile when sidebar is hidden */
+        .header-brand {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .header-brand img {
+            height: 26px;
+        }
+
+        .header-brand span {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1rem;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .header-left h1 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .mobile-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--secondary);
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .admin-avatar {
+            width: 42px;
+            height: 42px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .admin-info span {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .admin-info small {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .dashboard-view {
+            padding: 2rem;
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .dashboard-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card Styles */
+        .content-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* Stats grid — responsive columns via CSS class (not inline) */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            box-sizing: border-box;
+        }
+
+        .stat-card small {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-card h2 {
+            font-size: 1.7rem;
+            margin: 0.4rem 0;
+            color: var(--secondary);
+        }
+
+        /* Reports sub-grid */
+        .reports-sub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .data-table td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .status-active {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .status-pending {
+            background: #fef9c3;
+            color: #a16207;
+        }
+
+        .status-cancelled {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        /* Action Buttons */
+        .btn-action {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-edit {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .btn-delete {
+            background: #fff1f2;
+            color: #e11d48;
+        }
+
+        .btn-view {
+            background: #f8fafc;
+            color: #64748b;
+        }
+
+        /* Forms */
+        .admin-form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .admin-input:focus {
+            border-color: var(--primary);
+        }
+
+        /* Sidebar overlay — always present, shown via .show class */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(3px);
+            z-index: 1050;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .sidebar-overlay.show {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        /* ===== RESPONSIVE BREAKPOINTS ===== */
+
+        /* Tablet (≤ 1024px): collapse sidebar */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                z-index: 1100;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .header-brand {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .admin-info {
+                display: none;
+            }
+
+            .top-header {
+                padding: 0 20px;
+            }
+
+            .header-left h1 {
+                font-size: 1.1rem;
+            }
+
+            .dashboard-view {
+                padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .reports-sub-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .card-header {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .card-header input,
+            .card-header select {
+                width: 100% !important;
+            }
+
+            .admin-form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile (≤ 768px): tighter padding, 2-col stats */
+        @media (max-width: 768px) {
+            .top-header {
+                padding: 0 16px;
+                height: 64px;
+            }
+
+            .dashboard-view {
+                padding: 1rem;
+            }
+
+            .content-card {
+                padding: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .stat-card h2 {
+                font-size: 1.4rem;
+            }
+
+            .reports-sub-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-left h1 {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Small mobile (≤ 480px): 1-col stats, minimal header */
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* keep 2 on 480 */
+                gap: 0.6rem;
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            .stat-card h2 {
+                font-size: 1.25rem;
+            }
+
+            .header-brand span {
+                display: none;
+            }
+
+            .admin-avatar {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+        }
+
+        /* Tiny mobile (≤ 360px): 1-col stats */
+        @media (max-width: 400px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar backdrop overlay (mobile/tablet) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+        </div>
+        <nav class="sidebar-menu">
+            <div class="menu-item active" data-view="overview">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span>Dashboard</span>
+            </div>
+            <div class="menu-item" data-view="trips">
+                <i class="fa-solid fa-plane-up"></i>
+                <span>Manage Trips</span>
+            </div>
+            <div class="menu-item" data-view="users">
+                <i class="fa-solid fa-users"></i>
+                <span>Manage Users</span>
+            </div>
+            <div class="menu-item" data-view="bookings">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Manage Bookings</span>
+            </div>
+            <div class="menu-item" data-view="reports">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Reports & Analytics</span>
+            </div>
+            <div class="menu-item" data-view="messages">
+                <i class="fa-solid fa-comments"></i>
+                <span>Messages</span>
+            </div>
+            <div class="menu-item" data-view="settings">
+                <i class="fa-solid fa-gear"></i>
+                <span>System Settings</span>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <div id="logoutBtn">
+                <i class="fa-solid fa-power-off"></i>
+                <span>Sign Out</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </div>
+                <a href="../index.html" class="header-brand">
+                    <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Logo">
+                    <span>TRAVELORA</span>
+                </a>
+                <h1 id="viewTitle">Dashboard Overview</h1>
+            </div>
+            <div class="header-right">
+                <div class="admin-profile">
+                    <div class="admin-avatar">A</div>
+                    <div class="admin-info">
+                        <span>Admin Travelora</span>
+                        <small>Super Administrator</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- VIEW: Overview -->
+        <section id="overview" class="dashboard-view active">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <small>TOTAL REVENUE</small>
+                    <h2>$142,500</h2>
+                    <span style="color: var(--success); font-size: 0.85rem; font-weight: 700;"><i
+                            class="fa-solid fa-arrow-up"></i> 12.5% increase</span>
+                </div>
+                <div class="stat-card">
+                    <small>TOTAL USERS</small>
+                    <h2>1,284</h2>
+                    <span style="color: var(--success); font-size: 0.85rem; font-weight: 700;"><i
+                            class="fa-solid fa-user-plus"></i> +24 today</span>
+                </div>
+                <div class="stat-card">
+                    <small>ACTIVE BOOKINGS</small>
+                    <h2>156</h2>
+                    <span style="color: var(--accent); font-size: 0.85rem; font-weight: 700;"><i
+                            class="fa-solid fa-clock"></i> 12 pending</span>
+                </div>
+                <div class="stat-card">
+                    <small>TRIPS LISTED</small>
+                    <h2>48</h2>
+                    <span style="color: var(--primary); font-size: 0.85rem; font-weight: 700;"><i
+                            class="fa-solid fa-circle-check"></i> 42 published</span>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>Recent Bookings</h2>
+                    <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.8rem;">View All</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Package</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#TRV-9082</td>
+                                <td>Alice Cooper</td>
+                                <td>Swiss Alps Paradise</td>
+                                <td>Feb 26, 2026</td>
+                                <td><span class="status-badge status-active">Confirmed</span></td>
+                                <td>$2,450.00</td>
+                            </tr>
+                            <tr>
+                                <td>#TRV-9081</td>
+                                <td>Robert Fox</td>
+                                <td>Bali Tropical Escape</td>
+                                <td>Feb 25, 2026</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>$1,820.00</td>
+                            </tr>
+                            <tr>
+                                <td>#TRV-9080</td>
+                                <td>Jane Wilson</td>
+                                <td>Paris Highlights</td>
+                                <td>Feb 24, 2026</td>
+                                <td><span class="status-badge status-active">Confirmed</span></td>
+                                <td>$3,100.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: Trips -->
+        <section id="trips" class="dashboard-view">
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>Manage Trip Packages</h2>
+                    <button class="btn btn-primary" onclick="alert('Opening Add Trip Modal...')"><i
+                            class="fa-solid fa-plus"></i> Add New Trip</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Location</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=50&h=50&fit=crop"
+                                        style="border-radius: 4px;"></td>
+                                <td>Paris Highlights</td>
+                                <td>Paris, France</td>
+                                <td>$2,500</td>
+                                <td>Luxury</td>
+                                <td>
+                                    <div class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></div>
+                                    <div class="btn-action btn-delete"><i class="fa-solid fa-trash"></i></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=50&h=50&fit=crop"
+                                        style="border-radius: 4px;"></td>
+                                <td>Bali Paradise</td>
+                                <td>Bali, Indonesia</td>
+                                <td>$1,800</td>
+                                <td>Relaxation</td>
+                                <td>
+                                    <div class="btn-action btn-edit"><i class="fa-solid fa-pen"></i></div>
+                                    <div class="btn-action btn-delete"><i class="fa-solid fa-trash"></i></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: Users -->
+        <section id="users" class="dashboard-view">
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>Registered Users</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" placeholder="Search users..." class="admin-input" style="width: 250px;">
+                        <button class="btn btn-secondary">Search</button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Joined Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Admin Travelora</td>
+                                <td>admin@gmail.com</td>
+                                <td><span style="color: var(--primary); font-weight: 700;">Admin</span></td>
+                                <td>Jan 10, 2026</td>
+                                <td><span class="status-badge status-active">Online</span></td>
+                                <td>
+                                    <div class="btn-action btn-view"><i class="fa-solid fa-eye"></i></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dinesh Kumar</td>
+                                <td>user@gmail.com</td>
+                                <td>User</td>
+                                <td>Feb 15, 2026</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div class="btn-action btn-edit"><i class="fa-solid fa-lock"></i></div>
+                                    <div class="btn-action btn-delete"><i class="fa-solid fa-trash"></i></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: Bookings -->
+        <section id="bookings" class="dashboard-view">
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>Manage All Bookings</h2>
+                    <div class="filter-group" style="display: flex; gap: 10px;">
+                        <select class="admin-input" style="width: 150px;">
+                            <option>All Status</option>
+                            <option>Confirmed</option>
+                            <option>Pending</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Package</th>
+                                <th>Customer</th>
+                                <th>Travel Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#BK-1022</td>
+                                <td>Swiss Alps</td>
+                                <td>John Doe</td>
+                                <td>Mar 12, 2026</td>
+                                <td><span class="status-badge status-active">Paid</span></td>
+                                <td>
+                                    <button class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Change
+                                        Status</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="reports" class="dashboard-view">
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>Analytics Overview</h2>
+                    <select class="admin-input" style="width: 150px;">
+                        <option>Last 30 Days</option>
+                        <option>Last 6 Months</option>
+                        <option>Year 2026</option>
+                    </select>
+                </div>
+                <div
+                    style="height: 300px; background: #f8fafc; border: 2px dashed #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+                    <div style="text-align: center;">
+                        <i class="fa-solid fa-chart-line"
+                            style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <p>Interactive Revenue Charts Integration Pending</p>
+                    </div>
+                </div>
+                <div class="reports-sub-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;">
+                    <div class="content-card">
+                        <h3>Popular Destinations</h3>
+                        <ul style="margin-top: 1rem; padding: 0;">
+                            <li
+                                style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
+                                <span>1. Paris, France</span> <strong>42%</strong>
+                            </li>
+                            <li
+                                style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
+                                <span>2. Bali, Indonesia</span> <strong>28%</strong>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; padding: 8px 0;"><span>3. Swiss
+                                    Alps</span> <strong>15%</strong></li>
+                        </ul>
+                    </div>
+                    <div class="content-card">
+                        <h3>User Growth</h3>
+                        <div style="height: 100px; display: flex; align-items: flex-end; gap: 10px; padding: 10px;">
+                            <div style="flex: 1; height: 30%; background: var(--primary); border-radius: 4px;"></div>
+                            <div style="flex: 1; height: 50%; background: var(--primary); border-radius: 4px;"></div>
+                            <div style="flex: 1; height: 80%; background: var(--primary); border-radius: 4px;"></div>
+                            <div style="flex: 1; height: 65%; background: var(--primary); border-radius: 4px;"></div>
+                            <div style="flex: 1; height: 95%; background: var(--primary); border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: Messages -->
+        <section id="messages" class="dashboard-view">
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>Support Inquiries</h2>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div
+                        style="padding: 1.5rem; background: #f8fafc; border-left: 4px solid var(--primary); border-radius: 8px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <strong>Mark Spencer <span
+                                    style="font-weight: 400; color: var(--text-muted);">(mark@example.com)</span></strong>
+                            <small>2 hours ago</small>
+                        </div>
+                        <p style="font-size: 0.9rem;">"Hi, I'm having trouble with my payment for the Paris trip. Can
+                            you help?"</p>
+                        <button class="btn btn-outline"
+                            style="margin-top: 1rem; padding: 4px 12px; font-size: 0.8rem;">Reply Now</button>
+                    </div>
+                    <div
+                        style="padding: 1.5rem; background: white; border: 1px solid var(--border); border-radius: 8px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <strong>Elena Gilbert</strong>
+                            <small>Yesterday</small>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">"Is the visa assistance included in the
+                            luxury package?"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: Settings -->
+        <section id="settings" class="dashboard-view">
+            <div class="content-card">
+                <h2>Admin Profile Settings</h2>
+                <div class="admin-form-grid" style="margin-top: 2rem;">
+                    <div class="form-group">
+                        <label>Display Name</label>
+                        <input type="text" value="Admin Travelora" class="admin-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Admin Email</label>
+                        <input type="email" value="admin@travelora.com" class="admin-input">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem;">
+                    <label>Bio / Description</label>
+                    <textarea class="admin-input"
+                        style="height: 100px; resize: none;">Super Admin access for Travelora platform management.</textarea>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 1rem;">Update Profile</button>
+            </div>
+
+            <div class="content-card">
+                <h2 style="color: #e11d48;">System Security</h2>
+                <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+                        <div>
+                            <strong>Two-Factor Authentication</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Secure your account with 2FA.</p>
+                        </div>
+                        <button class="btn btn-outline">Enable</button>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong>Maintenance Mode</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Disable frontend for public users.
+                            </p>
+                        </div>
+                        <button class="btn btn-delete">OFF</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = document.querySelectorAll('.menu-item');
+            const views = document.querySelectorAll('.dashboard-view');
+            const viewTitle = document.getElementById('viewTitle');
+            const sidebar = document.getElementById('sidebar');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function openSidebar() {
+                sidebar.classList.add('show');
+                if (sidebarOverlay) sidebarOverlay.classList.add('show');
+                document.body.classList.add('no-scroll');
+            }
+
+            function closeSidebar() {
+                sidebar.classList.remove('show');
+                if (sidebarOverlay) sidebarOverlay.classList.remove('show');
+                document.body.classList.remove('no-scroll');
+            }
+
+            // Switch Section Logic
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    menuItems.forEach(i => i.classList.remove('active'));
+                    views.forEach(v => v.classList.remove('active'));
+
+                    item.classList.add('active');
+                    const viewId = item.getAttribute('data-view');
+                    const targetView = document.getElementById(viewId);
+                    if (targetView) {
+                        targetView.classList.add('active');
+                        targetView.setAttribute('tabindex', '-1');
+                        targetView.focus();
+                        viewTitle.textContent = item.querySelector('span').textContent;
+                    }
+
+                    window.scrollTo(0, 0);
+
+                    // Auto-close sidebar on mobile/tablet after click
+                    closeSidebar();
+                });
+            });
+
+            // Mobile Toggle
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    if (sidebar.classList.contains('show')) {
+                        closeSidebar();
+                    } else {
+                        openSidebar();
+                    }
+                });
+            }
+
+            // Close sidebar when clicking the overlay
+            if (sidebarOverlay) {
+                sidebarOverlay.addEventListener('click', closeSidebar);
+            }
+
+            // Simple search mockup
+            const searchBtn = document.querySelector('.btn-secondary');
+            if (searchBtn) {
+                searchBtn.addEventListener('click', () => {
+                    alert('Searching database...');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

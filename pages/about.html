@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | TRAVELORA - Redefining Global Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+    <style>
+        /* Redesigned About Page Styles */
+
+        /* ── Mobile Nav: Reinforced z-index to prevent stacking context conflicts ── */
+        header {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+        }
+
+        .mobile-toggle {
+            position: relative;
+            z-index: 1001 !important;
+            pointer-events: auto !important;
+            cursor: pointer !important;
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed !important;
+                top: 80px !important;
+                left: -100% !important;
+                width: 100% !important;
+                height: calc(100vh - 80px) !important;
+                background: white !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 1.5rem 0 !important;
+                gap: 0.5rem !important;
+                transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                z-index: 999 !important;
+                box-shadow: var(--shadow-lg) !important;
+                overflow-y: auto !important;
+            }
+
+            .nav-links.active {
+                left: 0 !important;
+            }
+
+            .mobile-toggle {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        }
+
+        .about-hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(37, 99, 235, 0.8) 100%), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            padding: 180px 0 100px;
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 0;
+            isolation: isolate;
+        }
+
+        .story-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .story-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .values-section {
+            background: var(--bg-light);
+            padding: 100px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            font-size: 2rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .team-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .testimonial-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card-about {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 0;
+            border-top: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .testimonial-card-about:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-section-about {
+            background: var(--secondary);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="login.html">Log In</a>
+                        <a href="login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <span
+                    style="display: block; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 1rem; opacity: 0.9;">Pioneering
+                    Global Exploration</span>
+                <h1 style="font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1.5rem; color: white;">About Travelora</h1>
+                <p style="font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">We believe that travel is
+                    not just about moving from A to B. It’s about the stories, the connections, and the seamless journey
+                    in between.</p>
+            </div>
+        </section>
+
+        <!-- Company Story Section -->
+        <section class="story-section">
+            <div class="container story-content">
+                <h2 class="section-title">Our Philosophy</h2>
+                <p>Founded in 2015, TRAVELORA began with a singular mission: to eliminate the friction of modern travel.
+                    We noticed that while the world was becoming more connected, the process of planning a trip was
+                    becoming increasingly complex and impersonal.</p>
+                <p>We set out to change that. By fusing cutting-edge AI technology with the warmth of human expertise,
+                    we’ve created a platform that doesn’t just book tickets—it curates experiences. Whether you’re
+                    scaling the Alps or navigating the bustiling streets of Tokyo, Travelora is your silent partner,
+                    ensuring every step is effortless, safe, and unforgettable.</p>
+                <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 3rem; color: var(--primary); font-weight: 800;">10+</h3>
+                        <p style="color: var(--text-muted); font-weight: 600;">Years of Excellence</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 3rem; color: var(--primary); font-weight: 800;">120+</h3>
+                        <p style="color: var(--text-muted); font-weight: 600;">Global Partners</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 3rem; color: var(--primary); font-weight: 800;">50K+</h3>
+                        <p style="color: var(--text-muted); font-weight: 600;">Journeys Crafted</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="section-title">Why We Are Different</h2>
+                    <p class="section-subtitle">The four pillars that define every Travelora experience.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+                        <h3>Trusted Partnerships</h3>
+                        <p class="text-muted">We work exclusively with vetted 5-star hotels, premium airlines, and
+                            certified local guides to ensure quality at every turn.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <h3>Smart Technology</h3>
+                        <p class="text-muted">Our proprietary AI planning engine personalizes your itinerary in seconds,
+                            adapting to your preferences and budget.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h3>Customer-First Support</h3>
+                        <p class="text-muted">Travel doesn't sleep, and neither do we. Our global concierge team is
+                            available 24/7 to resolve any issue instantly.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                        <h3>Global Reach</h3>
+                        <p class="text-muted">From hidden gems in Southeast Asia to major capitals in Europe, our
+                            network spans over 120 countries worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="section-title">Meet the Experts</h2>
+                    <p class="section-subtitle">The visionaries and travelers behind the platform.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+                    <div class="team-card" style="text-align: center;">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400"
+                            alt="CEO"
+                            style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; box-shadow: var(--shadow-md);">
+                        <h3 style="margin-bottom: 0.5rem;">Marcus Chen</h3>
+                        <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem;">Founder & CEO</p>
+                        <p class="text-muted" style="font-size: 0.9rem;">Former airline executive with a passion for
+                            sustainable tourism.</p>
+                    </div>
+                    <div class="team-card" style="text-align: center;">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+                            alt="CTO"
+                            style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; box-shadow: var(--shadow-md);">
+                        <h3 style="margin-bottom: 0.5rem;">Sarah Jenkins</h3>
+                        <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem;">Chief Technology
+                            Officer</p>
+                        <p class="text-muted" style="font-size: 0.9rem;">Tech innovator focused on AI-driven travel
+                            solutions.</p>
+                    </div>
+                    <div class="team-card" style="text-align: center;">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400"
+                            alt="Head of Product"
+                            style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; box-shadow: var(--shadow-md);">
+                        <h3 style="margin-bottom: 0.5rem;">David Miller</h3>
+                        <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem;">Head of Experiences</p>
+                        <p class="text-muted" style="font-size: 0.9rem;">Curator of over 500 exclusive tour packages
+                            worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="testimonial-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="section-title">Traveler Stories</h2>
+                    <p class="section-subtitle">Real experiences from our community of global explorers.</p>
+                </div>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial-card-about">
+                        <p
+                            style="font-size: 1.1rem; font-style: italic; color: var(--text-main); margin-bottom: 1.5rem;">
+                            "Travelora didn't just book my trip; they designed an entire experience. From the private
+                            transfers to the hidden local restaurants, everything was perfection."</p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 50px; height: 50px; background: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text-muted);">
+                                JD</div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">James Delaney</h4>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">London, UK</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card-about">
+                        <p
+                            style="font-size: 1.1rem; font-style: italic; color: var(--text-main); margin-bottom: 1.5rem;">
+                            "I was skeptical about using an online platform for a complex honeymoon, but the 24/7
+                            support was incredible. We felt taken care of every step of the way."</p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 50px; height: 50px; background: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text-muted);">
+                                AM</div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">Amanda Miller</h4>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">Sydney, Australia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Width CTA -->
+        <section class="cta-section-about">
+            <div class="container">
+                <h2 style="font-size: 3rem; margin-bottom: 1.5rem; color: white;">Ready to start your journey?</h2>
+                <p
+                    style="font-size: 1.25rem; margin-bottom: 3rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Join thousands of travelers who have discovered the world with Travelora.</p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="services.html" class="btn btn-primary"
+                        style="background: white; color: var(--primary); padding: 1rem 2.5rem;">Explore Packages</a>
+                    <a href="contact.html" class="btn btn-outline"
+                        style="border-color: white; color: white; padding: 1rem 2.5rem;">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/footer.js"></script>
+    <script>
+        /* Set a flag before main.js runs so main.js can mark itself as initialized */
+        window._travMobileNavReady = false;
+    </script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        /* About Page: Mobile Nav Safety Guard
+           This runs synchronously after main.js executes.
+           main.js uses DOMContentLoaded — at this point DOM is still being parsed
+           (readyState === 'loading'), so main.js hasn't initialized yet.
+           We hook into DOMContentLoaded with a lower-priority check. */
+        document.addEventListener('DOMContentLoaded', function () {
+            /* Give main.js's DOMContentLoaded handler a tick to run first */
+            setTimeout(function () {
+                var toggle = document.querySelector('.mobile-toggle');
+                var navLinks = document.querySelector('.nav-links');
+                if (!toggle || !navLinks) return;
+
+                /* Test if the toggle is actually responding (main.js may have bound it).
+                   We detect this by checking if the nav-links panel responds to click.
+                   Instead of re-binding, we simply ensure the element is interactable. */
+
+                /* Make sure toggle is not blocked by any invisible overlay */
+                toggle.style.pointerEvents = 'auto';
+                toggle.style.position = 'relative';
+                toggle.style.zIndex = '1001';
+
+                /* Verify it has a click handler by dispatching a test — no, we don't.
+                   Instead, just ensure the toggle has the required CSS state. */
+                if (window.getComputedStyle(toggle).display === 'none') {
+                    /* Toggle should be visible on mobile — force it */
+                    toggle.style.display = 'flex';
+                }
+            }, 0);
+        }, { once: true });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVELORA | Modern Travel Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon-v2.svg">
+</head>
+
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="home2.html">Home 2</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/services.html">Services</a></li>
+                <li><a href="pages/blog.html">Blog</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="pages/services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="pages/services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="pages/login.html">Log In</a>
+                        <a href="pages/login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="assets/images/hero_airline.png" alt="Airline Flight View">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content" style="text-align: center; margin: 0 auto;">
+                <h1>Explore the World With TRAVELORA</h1>
+                <p>Curated travel experiences designed for the modern explorer. From hidden gems to iconic landmarks, we
+                    make every journey unforgettable.</p>
+                <div class="hero-btns" style="justify-content: center;">
+                    <a href="pages/services.html" class="btn btn-primary">Discover Tours</a>
+                    <a href="pages/contact.html" class="btn btn-outline" style="border-color: white; color: white;">Plan
+                        Your Trip</a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Exclusive Tour Packages</h2>
+                <p class="section-subtitle">Handpicked destinations featuring our most popular itineraries and premium
+                    accommodations.</p>
+
+                <div class="package-grid">
+                    <div class="package-card" onclick="location.href='pages/package-details.html?id=1'">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+                                alt="Maldives">
+                            <span class="card-badge">Bestseller</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> 7 Days</span>
+                                <span><i class="fa-solid fa-user-group"></i> 2 Persons</span>
+                            </div>
+                            <h3 class="card-title">Pure Bliss: Maldives Getaway</h3>
+                            <p class="text-muted">Overwater villas, crystal clear lagoons, and ultimate relaxation in
+                                paradise.</p>
+                            <div class="card-footer">
+                                <span class="price">$2,499</span>
+                                <a href="pages/package-details.html?id=1" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="package-card" onclick="location.href='pages/package-details.html?id=2'">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800"
+                                alt="Swiss Alps">
+                            <span class="card-badge">Trending</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> 5 Days</span>
+                                <span><i class="fa-solid fa-user-group"></i> 1 Person</span>
+                            </div>
+                            <h3 class="card-title">Swiss Alp Adventure</h3>
+                            <p class="text-muted">Skiing, mountain trails, and the breathtaking scenery of Interlaken.
+                            </p>
+                            <div class="card-footer">
+                                <span class="price">$1,850</span>
+                                <a href="pages/package-details.html?id=2" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="package-card" onclick="location.href='pages/package-details.html?id=3'">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?auto=format&fit=crop&q=80&w=800"
+                                alt="Dubai">
+                            <span class="card-badge">Luxury</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> 4 Days</span>
+                                <span><i class="fa-solid fa-user-group"></i> 2 Persons</span>
+                            </div>
+                            <h3 class="card-title">The Golden City - Dubai</h3>
+                            <p class="text-muted">Explore desert safaris, world-clase shopping, and iconic architecture.
+                            </p>
+                            <div class="card-footer">
+                                <span class="price">$3,200</span>
+                                <a href="pages/package-details.html?id=3" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Card 4 -->
+                    <div class="package-card" onclick="location.href='pages/package-details.html?id=4'">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800"
+                                alt="Santorini">
+                            <span class="card-badge">Romantic</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> 6 Days</span>
+                                <span><i class="fa-solid fa-user-group"></i> 2 Persons</span>
+                            </div>
+                            <h3 class="card-title">Santorini Sunset Bliss</h3>
+                            <p class="text-muted">Iconic blue domes, white-washed villas, and the world's most beautiful
+                                sunsets.</p>
+                            <div class="card-footer">
+                                <span class="price">$2,100</span>
+                                <a href="pages/package-details.html?id=4" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Card 5 -->
+                    <div class="package-card" onclick="location.href='pages/package-details.html?id=5'">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1484318571209-661cf29a69c3?auto=format&fit=crop&q=80&w=800"
+                                alt="Kenya Safari"
+                                onerror="this.src='https://images.unsplash.com/photo-1516422213484-21437ef13e1a';">
+                            <span class="card-badge">Adventure</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> 8 Days</span>
+                                <span><i class="fa-solid fa-user-group"></i> 4 Persons</span>
+                            </div>
+                            <h3 class="card-title">Masai Mara Safari</h3>
+                            <p class="text-muted">Witness the great migration and experience the raw beauty of the
+                                African savannah.</p>
+                            <div class="card-footer">
+                                <span class="price">$3,800</span>
+                                <a href="pages/package-details.html?id=5" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Card 6 -->
+                    <div class="package-card" onclick="location.href='pages/package-details.html?id=6'">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&q=80&w=800"
+                                alt="Norway Aurora"
+                                onerror="this.src='https://images.unsplash.com/photo-1531366930472-35804368eb1e';">
+                            <span class="card-badge">Winter</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-calendar"></i> 5 Days</span>
+                                <span><i class="fa-solid fa-user-group"></i> 2 Persons</span>
+                            </div>
+                            <h3 class="card-title">Nordic Lights Expedition</h3>
+                            <p class="text-muted">Chasing the Aurora Borealis through the majestic fjords of Northern
+                                Norway.</p>
+                            <div class="card-footer">
+                                <span class="price">$2,750</span>
+                                <a href="pages/package-details.html?id=6" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: white;">
+            <div class="container">
+                <div class="services-overview-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem;">
+                    <div class="overview-item" onclick="location.href='pages/luxury-resorts.html'">
+                        <i class="fa-solid fa-hotel"></i>
+                        <h3>Luxury Resorts</h3>
+                        <p class="text-muted">Exclusive partnerships with top-rated hotels and private villas worldwide.
+                        </p>
+                        <a href="pages/luxury-resorts.html" class="overview-cta">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="overview-item" onclick="location.href='pages/fast-bookings.html'">
+                        <i class="fa-solid fa-plane-up"></i>
+                        <h3>Fast Bookings</h3>
+                        <p class="text-muted">Seamless flight and transport booking system for any destination.</p>
+                        <a href="pages/fast-bookings.html" class="overview-cta">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="overview-item" onclick="location.href='pages/travel-tools.html'">
+                        <i class="fa-solid fa-route"></i>
+                        <h3>Travel Tools</h3>
+                        <p class="text-muted">Expert navigation guides and localized mobile support for travelers.</p>
+                        <a href="pages/travel-tools.html" class="overview-cta">Learn More <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="cta-banner"
+                    style="background: var(--primary); padding: 5rem; border-radius: var(--radius-lg); color: white; text-align: center; background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1500'); background-blend-mode: overlay; background-size: cover;">
+                    <h2 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Ready for your next adventure?</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">Join 50,000+ travelers who trust
+                        TRAVELORA for their global explorations.</p>
+                    <a href="pages/contact.html" class="btn btn-secondary"
+                        style="background: white; color: var(--primary); padding: 1rem 3rem;">Start Planning Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/footer.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

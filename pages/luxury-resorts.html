@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Resorts | TRAVELORA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+    <style>
+        .feature-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+        <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="login.html">Log In</a>
+                        <a href="login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-header"
+            style="background: var(--secondary); padding: 100px 0 60px; color: white; text-align: center; position: relative; overflow: hidden;">
+            <div class="container" style="position: relative; z-index: 2;">
+                <a href="../index.html" class="btn btn-outline"
+                    style="position: absolute; top: -60px; left: 0; padding: 0.5rem 1rem; border-color: rgba(255,255,255,0.3); color: white; font-size: 0.9rem;">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Home
+                </a>
+                <span
+                    style="background: var(--primary); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Exclusive
+                    Collection</span>
+                <h1
+                    style="color: white; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; line-height: 1.1;">
+                    The World's Finest <span style="color: var(--primary);">Resorts & Hotels</span></h1>
+                <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.6;">Where
+                    opulence meets comfort. Experience tailored luxury in handpicked destinations around the globe.</p>
+            </div>
+            <!-- Subtle Overlay -->
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 64, 175, 0.2) 100%); z-index: 1;">
+            </div>
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1500"
+                alt="Luxury Resort Background"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.4;">
+        </section>
+
+        <!-- Content Section 1: Introduction -->
+        <section class="section" style="padding-bottom: 4rem;">
+            <div class="container"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="revealed">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Unmatched Elegance &
+                        Privacy</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
+                        At TRAVELORA, "luxury" isn't just a buzzword—it's our standard. We partner exclusively with
+                        resorts
+                        and boutique hotels that redefine hospitality. From private islands in the Maldives to historic
+                        châteaus in Provence, every property is vetted for design, service, and sustainability.
+                    </p>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+                        Whether you seek a secluded romantic getaway or a high-end family retreat, our collection
+                        guarantees
+                        privacy, personalized concierge service, and amenities that cater to your every whim.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+                        alt="Luxury interior"
+                        style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);">
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section 2: Features Grid -->
+        <section class="section" style="background: var(--bg-white);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="section-title">Why Choose Our Resorts?</h2>
+                    <p class="section-subtitle">Excellence in every detail, curated for the discerning traveler.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-star"
+                            style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                        <h3>5-Star Standards</h3>
+                        <p class="text-muted">Every property meets our rigorous 50-point quality inspection.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-concierge-bell"
+                            style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h3>24/7 Concierge</h3>
+                        <p class="text-muted">Dedicated support to handle reservations, transfers, and special requests.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-water"
+                            style="font-size: 2.5rem; color: var(--success); margin-bottom: 1rem;"></i>
+                        <h3>Prime Locations</h3>
+                        <p class="text-muted">Situating you in the heart of nature or the center of culture.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-utensils"
+                            style="font-size: 2.5rem; color: var(--error); margin-bottom: 1rem;"></i>
+                        <h3>Gourmet Dining</h3>
+                        <p class="text-muted">Access to Michelin-star chefs and authentic local culinary experiences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section 3: FAQ -->
+        <section class="section">
+            <div class="container" style="max-width: 900px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Do you offer all-inclusive options?</h3>
+                        <p>Yes, many of our resort partners offer comprehensive all-inclusive packages that cover
+                            dining,
+                            drinks, and activities.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I customize my stay?</h3>
+                        <p>Absolutely. We specialize in bespoke itineraries. Whether you need a private chef, a yacht
+                            charter, or special room configurations, we can arrange it.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is there a cancellation policy?</h3>
+                        <p>Cancellation policies vary by property, but we prioritize flexibility. Most bookings allow
+                            free
+                            cancellation up to 14 days before arrival.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="section"
+            style="background: var(--secondary); color: white; text-align: center; padding: 5rem 0;">
+            <div class="container">
+                <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1.5rem;">Ready to Indulge?</h2>
+                <p
+                    style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Browse our curated list of exclusive properties and start planning the vacation of a lifetime.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="../index.html#packages" class="btn btn-primary" style="padding: 1rem 3rem;">View
+                        Packages</a>
+                    <a href="contact.html" class="btn btn-outline"
+                        style="border-color: white; color: white; padding: 1rem 3rem;">Contact an Expert</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/footer.js"></script>
+    
+    <script>
+        // Ensure consistent mobile back button visibility
+        document.addEventListener('DOMContentLoaded', () => {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @media (max-width: 768px) {
+                    .page-header .btn-outline {
+                        position: static !important;
+                        display: inline-flex;
+                        margin-bottom: 1rem;
+                        border: 1px solid rgba(255,255,255,0.5) !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

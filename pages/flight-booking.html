@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamless Flight Booking | TRAVELORA Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+    <style>
+        .service-hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            padding: 160px 0 100px;
+            color: white;
+            text-align: center;
+        }
+
+        .back-btn {
+            position: static;
+            align-self: flex-start;
+            margin-bottom: 1.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-box {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .service-hero {
+                padding: 110px 0 70px;
+            }
+
+            .service-hero h1 {
+                font-size: 2.25rem !important;
+            }
+
+            .back-btn {
+                font-size: 0.85rem;
+                padding: 0.45rem 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-hero {
+                padding: 90px 0 60px;
+            }
+
+            .service-hero h1 {
+                font-size: 1.85rem !important;
+            }
+        }
+        </style>
+</head>
+
+<body>
+        <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="login.html">Log In</a>
+                        <a href="login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="service-hero">
+            <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+                <a href="services.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Services</a>
+                <span
+                    style="color: var(--primary); font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Global
+                    Connectivity</span>
+                <h1 style="font-size: 3.5rem; margin: 1rem 0; color: white;">Seamless Flight Booking</h1>
+                <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.9;">
+                    Access global airline networks with priority seating, baggage handling, and real-time tracking.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="content-grid">
+                    <div>
+                        <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Fly Smarter, Not Harder</h2>
+                        <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">
+                            Booking a flight should be the easiest part of your trip. Travelora connects you directly to
+                            over 400 airlines worldwide, offering exclusive deals and routes you won't find on public
+                            search engines. From economy to first class, we ensure your journey is comfortable,
+                            efficient, and perfectly timed.
+                        </p>
+
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Key Benefits</h3>
+                        <ul style="list-style: none; margin-bottom: 2rem;">
+                            <li style="margin-bottom: 1rem; display: flex; gap: 10px; align-items: flex-start;">
+                                <i class="fa-solid fa-check" style="color: var(--success); margin-top: 5px;"></i>
+                                <span style="color: var(--text-muted);">Real-time availability and instant
+                                    confirmation.</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; gap: 10px; align-items: flex-start;">
+                                <i class="fa-solid fa-check" style="color: var(--success); margin-top: 5px;"></i>
+                                <span style="color: var(--text-muted);">Automatic check-in and seat selection
+                                    preferences engaged.</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; gap: 10px; align-items: flex-start;">
+                                <i class="fa-solid fa-check" style="color: var(--success); margin-top: 5px;"></i>
+                                <span style="color: var(--text-muted);">24/7 flight monitoring for delays and gate
+                                    changes.</span>
+                            </li>
+                        </ul>
+
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Booking Process</h3>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; margin-bottom: 2rem;">
+                            <div style="padding: 1.5rem; background: var(--bg-light); border-radius: var(--radius-sm);">
+                                <i class="fa-solid fa-magnifying-glass"
+                                    style="font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
+                                <h4 style="font-size: 1rem;">Search</h4>
+                            </div>
+                            <div style="padding: 1.5rem; background: var(--bg-light); border-radius: var(--radius-sm);">
+                                <i class="fa-solid fa-filter"
+                                    style="font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
+                                <h4 style="font-size: 1rem;">Select</h4>
+                            </div>
+                            <div style="padding: 1.5rem; background: var(--bg-light); border-radius: var(--radius-sm);">
+                                <i class="fa-solid fa-ticket"
+                                    style="font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
+                                <h4 style="font-size: 1rem;">Ticket</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="feature-box">
+                            <h3 style="margin-bottom: 1.5rem;">Why Choose Us?</h3>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
+                                <div>
+                                    <h4 style="font-size: 1rem; margin-bottom: 5px;">Best Rates</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted);">Exclusive corporate and
+                                        agency fares.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                <div>
+                                    <h4 style="font-size: 1rem; margin-bottom: 5px;">Travel Insurance</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted);">Comprehensive coverage
+                                        options available.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <h4 style="font-size: 1rem; margin-bottom: 5px;">Change Flexibility</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted);">Reasonable policies for date
+                                        changes.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-box" style="background: var(--secondary); color: white; border: none;">
+                            <h3 style="color: white; margin-bottom: 1rem;">Need Assistance?</h3>
+                            <p style="opacity: 0.8; margin-bottom: 1.5rem;">Complex multi-city itinerary? Let our
+                                experts handle it.</p>
+                            <a href="contact.html" class="btn btn-primary" style="width: 100%;">Talk to an Agent</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section" style="background: var(--bg-light);">
+            <div class="container" style="max-width: 900px;">
+                <h2 class="section-title">Common Questions</h2>
+                <div class="faq-item">
+                    <h3>Can I book multi-city flights?</h3>
+                    <p style="color: var(--text-muted);">Yes, our platform supports complex itineraries including
+                        open-jaw and multi-stop trips.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What happens if my flight is cancelled?</h3>
+                    <p style="color: var(--text-muted);">We proactively rebook you on the next available flight and
+                        assist with compensation claims where applicable.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you support budget airlines?</h3>
+                    <p style="color: var(--text-muted);">Yes, we include both full-service carriers and low-cost
+                        airlines to give you the widest range of options.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-banner"
+                    style="background: var(--primary); padding: 4rem; border-radius: var(--radius-lg); text-align: center; color: white;">
+                    <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">Book Your Flight Today</h2>
+                    <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">Secure the best seats at the best
+                        prices.</p>
+                    <a href="destinations.html" class="btn btn-secondary"
+                        style="background: white; color: var(--primary); padding: 1rem 3rem;">Search Flights</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/footer.js"></script>
+    
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

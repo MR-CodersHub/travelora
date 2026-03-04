@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details | TRAVELORA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+</head>
+
+<body>
+        <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="login.html">Log In</a>
+                        <a href="login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="details-container">
+            <section class="section">
+                <div class="container" style="text-align:center;">
+                    <h2>Loading package details...</h2>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../assets/js/footer.js"></script>
+
+    
+    <script>
+        const packages = [
+            {
+                id: 1,
+                title: "Pure Bliss: Maldives Getaway",
+                image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+                days: "7 Days",
+                persons: "2 Persons",
+                price: "$2,499",
+                badge: "Bestseller",
+                desc: "Overwater villas, crystal clear lagoons, and ultimate relaxation in paradise."
+            },
+            {
+                id: 2,
+                title: "Swiss Alp Adventure",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800",
+                days: "5 Days",
+                persons: "1 Person",
+                price: "$1,850",
+                badge: "Trending",
+                desc: "Skiing, mountain trails, and the breathtaking scenery of Interlaken."
+            },
+            {
+                id: 3,
+                title: "The Golden City - Dubai",
+                image: "https://images.unsplash.com/photo-1528702748617-c64d49f918af?auto=format&fit=crop&q=80&w=800",
+                days: "4 Days",
+                persons: "2 Persons",
+                price: "$3,200",
+                badge: "Luxury",
+                desc: "Explore desert safaris, world-clase shopping, and iconic architecture."
+            },
+            {
+                id: 4,
+                title: "Santorini Sunset Bliss",
+                image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800",
+                days: "6 Days",
+                persons: "2 Persons",
+                price: "$2,100",
+                badge: "Romantic",
+                desc: "Iconic blue domes, white-washed villas, and the world's most beautiful sunsets."
+            },
+            {
+                id: 5,
+                title: "Masai Mara Safari",
+                image: "https://images.unsplash.com/photo-1484318571209-661cf29a69c3?auto=format&fit=crop&q=80&w=800",
+                days: "8 Days",
+                persons: "4 Persons",
+                price: "$3,800",
+                badge: "Adventure",
+                desc: "Witness the great migration and experience the raw beauty of the African savannah."
+            },
+            {
+                id: 6,
+                title: "Nordic Lights Expedition",
+                image: "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&q=80&w=800",
+                days: "5 Days",
+                persons: "2 Persons",
+                price: "$2,750",
+                badge: "Winter",
+                desc: "Chasing the Aurora Borealis through the majestic fjords of Northern Norway."
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = parseInt(urlParams.get('id'));
+            const pkg = packages.find(p => p.id === id);
+
+            const container = document.getElementById('details-container');
+
+            if (pkg) {
+                container.innerHTML = `
+                <section class="page-header" style="background: var(--secondary); padding: 80px 0; color: white; text-align: center; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.4;">
+                        <img src="${pkg.image}" style="width: 100%; height: 100%; object-fit: cover;" alt="${pkg.title}">
+                    </div>
+                    <div class="container" style="position: relative; z-index: 1;">
+                        <span style="background: var(--primary); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; display: inline-block; margin-bottom: 1rem;">${pkg.badge}</span>
+                        <h1 style="color: white; font-size: clamp(2rem, 5vw, 4rem); text-shadow: 0 4px 10px rgba(0,0,0,0.5);">${pkg.title}</h1>
+                        <p style="font-size: 1.5rem; margin-top: 1rem; opacity: 0.9;">${pkg.days} &bull; ${pkg.persons}</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="container">
+                        <div class="package-details-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 4rem;">
+                            <!-- Left Content -->
+                            <div>
+                                <h2 class="section-title" style="text-align: left;">Package Overview</h2>
+                                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">
+                                    ${pkg.desc} Experience the ultimate journey with our curated ${pkg.title} package. 
+                                    Enjoy premium accommodations, expert guides, and seamless travel arrangements designed just for you.
+                                </p>
+                                
+                                <h3 style="margin-bottom: 1rem;">What's Included</h3>
+                                <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 3rem;">
+                                    <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 10px;"></i> Premium Accommodation</li>
+                                    <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 10px;"></i> Daily Breakfast</li>
+                                    <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 10px;"></i> Airport Transfers</li>
+                                    <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 10px;"></i> Guided Tours</li>
+                                    <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 10px;"></i> 24/7 Support</li>
+                                    <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 10px;"></i> Travel Insurance</li>
+                                </ul>
+
+                                <h3 style="margin-bottom: 1rem;">Itinerary Highlights</h3>
+                                <div class="itinerary-timeline" style="border-left: 3px solid var(--border); padding-left: 2rem;">
+                                    <div style="margin-bottom: 2rem; position: relative;">
+                                        <div style="position: absolute; left: -2.6rem; top: 5px; width: 15px; height: 15px; background: var(--primary); border-radius: 50%;"></div>
+                                        <h4>Day 1: Arrival & Welcome</h4>
+                                        <p class="text-muted">Arrive at the destination and transfer to your luxury hotel. Welcome dinner included.</p>
+                                    </div>
+                                    <div style="margin-bottom: 2rem; position: relative;">
+                                        <div style="position: absolute; left: -2.6rem; top: 5px; width: 15px; height: 15px; background: var(--primary); border-radius: 50%;"></div>
+                                        <h4>Day 2-${parseInt(pkg.days) - 1}: Exploration</h4>
+                                        <p class="text-muted">Guided tours to iconic landmarks and free time for personal discovery.</p>
+                                    </div>
+                                    <div style="position: relative;">
+                                        <div style="position: absolute; left: -2.6rem; top: 5px; width: 15px; height: 15px; background: var(--primary); border-radius: 50%;"></div>
+                                        <h4>Day ${pkg.days}: Departure</h4>
+                                        <p class="text-muted">Farewell breakfast and private transfer to the airport.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Content (Booking Card) -->
+                            <div>
+                                <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-xl); position: sticky; top: 100px;">
+                                    <h3 style="margin-bottom: 0.5rem;">Book This Trip</h3>
+                                    <p class="text-muted" style="margin-bottom: 1.5rem;">Limited availability for this season.</p>
+                                    
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                                        <span style="font-size: 1.1rem; font-weight: 600;">Total Price</span>
+                                        <span style="font-size: 2rem; font-weight: 800; color: var(--primary);">${pkg.price}</span>
+                                    </div>
+
+                                    <a href="contact.html?package=${pkg.id}" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem; text-align: center;">Request Booking</a>
+                                    <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Ask a Question</a>
+
+                                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); text-align: center;">
+                                        <i class="fa-solid fa-shield-halved"></i> 100% Secure Booking
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+
+                // Handle Responsive Grid via JS if CSS in main.css doesn't cover this new class
+                const style = document.createElement('style');
+                style.innerHTML = `
+                @media (max-width: 900px) {
+                    .package-details-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 3rem !important;
+                    }
+                }
+            `;
+                document.head.appendChild(style);
+
+            } else {
+                container.innerHTML = `
+                <section class="section" style="text-align: center; padding: 100px 0;">
+                    <div class="container">
+                        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Package Not Found</h2>
+                        <p class="text-muted" style="margin-bottom: 2rem;">The package you are looking for does not exist or has been removed.</p>
+                        <a href="../index.html" class="btn btn-primary">Back to Home</a>
+                    </div>
+                </section>
+            `;
+            }
+        });
+    </script>
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

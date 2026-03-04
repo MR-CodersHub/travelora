@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 2 | TRAVELORA - Your Complete Travel Planning Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon-v2.svg">
+    <style>
+        /* Platform Page Specific Styles */
+        .platform-hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .platform-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            text-align: left;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Timeline Styles */
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 4rem;
+            gap: 2rem;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            width: calc(100% - 100px);
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-step:hover .step-icon {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: scale(1.1);
+        }
+
+        /* Benefit Counters */
+        .trust-section {
+            background: var(--secondary);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .counter-item h3 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .counter-item p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+
+        .testimonial-card i.quote-icon {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: var(--border);
+            opacity: 0.5;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .timeline-container {
+                flex-direction: column;
+                gap: 3rem;
+                padding-left: 2rem;
+            }
+
+            .timeline-container::before {
+                width: 2px;
+                height: calc(100% - 80px);
+                top: 40px;
+                left: 60px;
+                /* Adjusted based on padding + icon center */
+            }
+
+            .timeline-container::before {
+                left: 2rem;
+                /* Align vertical line */
+                width: 2px;
+                height: 100%;
+                top: 0;
+            }
+
+            .timeline-step {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 2rem;
+            }
+
+            .step-icon {
+                margin: 0;
+                min-width: 80px;
+                /* Prevent shrink */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="home2.html" class="active">Home 2</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/services.html">Services</a></li>
+                <li><a href="pages/blog.html">Blog</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="pages/services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="pages/services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="pages/login.html">Log In</a>
+                        <a href="pages/login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="platform-hero">
+            <div class="container">
+                <span
+                    style="color: var(--primary); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 0.9rem; display: block; margin-bottom: 1rem;">Seamless.
+                    Intelligent. Global.</span>
+                <h1
+                    style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; line-height: 1.1; font-weight: 900;">
+                    Your Complete Travel<br><span style="color: var(--primary);">Planning Platform</span></h1>
+                <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2.5rem;">
+                    Empowering travelers with AI-driven tools, real-time booking engines, and verified local
+                    expertise—all in one place.
+                </p>
+                <a href="pages/services.html" class="btn btn-primary"
+                    style="padding: 1rem 3rem; font-size: 1.1rem; box-shadow: var(--shadow-lg);">Start Exploring</a>
+            </div>
+        </section>
+
+        <!-- Feature Overview -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="section-title">Everything You Need</h2>
+                    <p class="section-subtitle">A unified ecosystem designed for the modern explorer.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Smart Booking</h3>
+                        <p class="text-muted">Our AI engine scans millions of flights and hotels to find the perfect
+                            match for your preferences and budget instantly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-route"></i></div>
+                        <h3>Personalized Itineraries</h3>
+                        <p class="text-muted">Build day-by-day plans with drag-and-drop ease. Add activities,
+                            reservations, and notes in seconds.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Secure Payments</h3>
+                        <p class="text-muted">Bank-grade encryption ensures your transactions are safe. Global currency
+                            support included.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h3>Real-time Support</h3>
+                        <p class="text-muted">Get 24/7 assistance from our digital concierge or connect with human
+                            experts whenever you need.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-globe"></i></div>
+                        <h3>Global Destinations</h3>
+                        <p class="text-muted">Access over 120 countires with verified guides and exclusive local
+                            experiences.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <h3>Mobile Companion</h3>
+                        <p class="text-muted">Your entire trip in your pocket. Offline maps, tickets, and updates
+                            available on our app.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Timeline -->
+        <section class="section" style="background: var(--bg-white);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">Your journey from inspiration to destination in four simple steps.</p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-step">
+                        <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <h3>Search</h3>
+                        <p class="text-muted">Enter your dates and interests.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-icon"><i class="fa-solid fa-list-check"></i></div>
+                        <h3>Choose</h3>
+                        <p class="text-muted">Select tailored options.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-icon"><i class="fa-solid fa-credit-card"></i></div>
+                        <h3>Book</h3>
+                        <p class="text-muted">Secure instantly.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                        <h3>Travel</h3>
+                        <p class="text-muted">Enjoy your trip!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust & Benefits -->
+        <section class="trust-section">
+            <div class="container">
+                <div class="counter-grid">
+                    <div class="counter-item">
+                        <h3>99.9%</h3>
+                        <p>Uptime Reliability</p>
+                    </div>
+                    <div class="counter-item">
+                        <h3>50K+</h3>
+                        <p>Happy Travelers</p>
+                    </div>
+                    <div class="counter-item">
+                        <h3>24/7</h3>
+                        <p>Global Support</p>
+                    </div>
+                    <div class="counter-item">
+                        <h3>150+</h3>
+                        <p>Partner Airlines</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Loved by Travelers</h2>
+                <p class="section-subtitle">Real stories from people who explored the world with TRAVELORA.</p>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic;">"The itinerary tool
+                            is a game changer. I planned a 2-week trip to Japan in under an hour, and everything went
+                            perfectly."</p>
+                        <div class="user-profile">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+                                alt="User" class="user-avatar">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">Sarah Jenkins</h4>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">New York, USA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic;">"I usually get
+                            stressed booking flights and hotels separately. TRAVELORA handled it all instantly. Highly
+                            recommended!"</p>
+                        <div class="user-profile">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+                                alt="User" class="user-avatar">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">David Miller</h4>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">London, UK</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic;">"The mobile app was a
+                            lifesaver when we lost signal in the Andes. Offline maps and docs kept us on track."</p>
+                        <div class="user-profile">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200"
+                                alt="User" class="user-avatar">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">Elena Rodriguez</h4>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">Madrid, Spain</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Banner -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="cta-banner"
+                    style="background: var(--primary); padding: 5rem 2rem; border-radius: var(--radius-lg); color: white; text-align: center; background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1500'); background-blend-mode: overlay; background-size: cover; background-position: center;">
+                    <h2 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Ready for your next adventure?</h2>
+                    <p
+                        style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Join 50,000+ travelers who trust TRAVELORA for their global explorations. Sign up today and
+                        start planning.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="pages/contact.html" class="btn btn-secondary"
+                            style="background: white; color: var(--primary); padding: 1rem 3rem;">Create Free
+                            Account</a>
+                        <a href="pages/services.html" class="btn btn-outline"
+                            style="border-color: white; color: white; padding: 1rem 3rem;">View Packages</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/footer.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In | TRAVELORA - Welcome Back</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+    <style>
+        .role-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-option {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .role-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .role-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            background: #fff;
+            gap: 8px;
+        }
+
+        .role-box i {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+
+        .role-box span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .role-option input:checked+.role-box {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.05);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .role-option input:checked+.role-box i {
+            color: var(--primary);
+        }
+
+        .role-option input:checked+.role-box span {
+            color: var(--primary);
+        }
+
+        .error-msg.global-error {
+            background: #fff1f2;
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            border: 1px solid #fda4af;
+            margin-top: 15px;
+            text-align: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline" style="display: none;">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <a href="login.html" class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <main class="auth-section">
+        <div class="auth-card">
+            <!-- Brand Header -->
+            <a href="../index.html" class="auth-brand-header">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+
+            <div class="auth-header">
+                <h1>Welcome Back</h1>
+                <p>Log in to manage your trips and view your itinerary.</p>
+            </div>
+
+            <form class="auth-form" id="login-form" novalidate>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="loginEmail" class="auth-input" placeholder="Enter your email" required>
+                    </div>
+                    <!-- Validation Message -->
+                    <span class="error-msg" id="email-error"><i class="fa-solid fa-circle-exclamation"></i> Please enter
+                        a valid email address.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="loginPassword" class="auth-input" placeholder="Enter your password"
+                            required>
+                        <i class="fa-solid fa-eye-slash password-toggle" id="toggle-password" role="button"
+                            tabindex="0"></i>
+                    </div>
+                    <!-- Validation Message -->
+                    <span class="error-msg" id="password-error"><i class="fa-solid fa-circle-exclamation"></i> Password
+                        cannot be empty.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Login As</label>
+                    <div class="role-selection">
+                        <label class="role-option">
+                            <input type="radio" name="loginRole" value="user" checked>
+                            <div class="role-box">
+                                <i class="fa-solid fa-user"></i>
+                                <span>User Dashboard</span>
+                            </div>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="loginRole" value="admin">
+                            <div class="role-box">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>Admin Dashboard</span>
+                            </div>
+                        </label>
+                    </div>
+                    <span class="error-msg global-error" id="login-error"></span>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        Remember me
+                    </label>
+                    <a href="reset-password.html" class="forgot-link">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="auth-btn" id="loginBtn">Log In</button>
+
+                <div class="auth-divider">
+                    <div class="line"></div>
+                    <span>Or continue with</span>
+                    <div class="line"></div>
+                </div>
+
+                <button type="button" class="google-btn"
+                    onclick="alert('Google Login is currently in demo mode. Backend integration pending.');">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                    Continue with Google
+                </button>
+
+                <div class="auth-footer">
+                    Don't have an account? <a href="signup.html">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <script src="../assets/js/footer.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('login-form');
+            const passwordInput = document.getElementById('loginPassword');
+            const togglePassword = document.getElementById('toggle-password');
+
+
+            // Form Submit Logic
+            if (loginForm) {
+                loginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const emailField = document.getElementById('loginEmail');
+                    const passwordField = document.getElementById('loginPassword');
+                    const loginError = document.getElementById('login-error');
+                    const selectedRole = document.querySelector('input[name="loginRole"]:checked').value;
+
+                    const email = emailField.value.trim();
+                    const password = passwordField.value;
+
+                    // Reset errors
+                    loginError.classList.remove('visible');
+                    loginError.innerHTML = '';
+                    emailField.classList.remove('error');
+                    passwordField.classList.remove('error');
+                    document.getElementById('email-error').classList.remove('visible');
+                    document.getElementById('password-error').classList.remove('visible');
+
+                    // Check for empty fields
+                    if (!email || !password) {
+                        loginError.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Please enter email and password.';
+                        loginError.classList.add('visible');
+                        if (!email) emailField.classList.add('error');
+                        if (!password) passwordField.classList.add('error');
+                        return;
+                    }
+
+                    // Specific Admin Validation
+                    if (selectedRole === 'admin') {
+                        if (email !== 'admin@gmail.com' || password !== 'admin123') {
+                            loginError.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Invalid Admin Credentials.';
+                            loginError.classList.add('visible');
+                            emailField.classList.add('error');
+                            passwordField.classList.add('error');
+                            return;
+                        }
+                    }
+
+                    // Logic for both roles - Accept any credentials if not empty (for demo purposes as it was)
+                    // If selectedRole is 'user', it will skip the admin check above and proceed here.
+                    processSuccess(selectedRole);
+
+                    function processSuccess(role) {
+                        const btn = document.getElementById('loginBtn');
+                        const originalBtnContent = btn.innerHTML;
+                        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Logging In...';
+                        btn.disabled = true;
+
+                        setTimeout(() => {
+                            localStorage.setItem('isLoggedIn', 'true');
+                            localStorage.setItem('role', role);
+                            localStorage.setItem('userEmail', email);
+
+                            if (role === 'admin') {
+                                window.location.href = 'admin-dashboard.html';
+                            } else {
+                                window.location.href = 'user-dashboard.html';
+                            }
+                        }, 1200);
+                    }
+                });
+            }
+
+            // Redirect check
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('tab') === 'signup') {
+                window.location.href = 'signup.html';
+            }
+        });
+    </script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

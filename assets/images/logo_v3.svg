@@ -1,0 +1,14 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Minimalist Modern Compass Icon -->
+  <circle cx="25" cy="25" r="20" stroke="#0f172a" stroke-width="1.5"/>
+  <path d="M25 12V18" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+  <path d="M25 32V38" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M12 25H18" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 25H38" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+  
+  <path d="M25 18L28 25L25 32L22 25L25 18Z" fill="#2563eb"/>
+  <circle cx="25" cy="25" r="2" fill="white"/>
+  
+  <!-- Premium Wordmark -->
+  <text x="55" y="33" font-family="Inter, sans-serif" font-weight="900" font-size="24" letter-spacing="0.08em" fill="#0f172a">TRAVELORA</text>
+</svg>

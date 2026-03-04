@@ -1,0 +1,9 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern Aerodynamic Wing Icon -->
+  <path d="M10 35C10 35 25 35 45 15" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+  <path d="M15 40C15 40 30 40 40 30" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-opacity="0.3"/>
+  <path d="M40 15L48 12L45 20L40 15Z" fill="#2563eb"/>
+  
+  <!-- Balanced Modern Wordmark -->
+  <text x="60" y="34" font-family="'Inter', sans-serif" font-weight="900" font-size="24" letter-spacing="0.1em" fill="#0f172a">TRAVELORA</text>
+</svg>

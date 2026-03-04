@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | TRAVELORA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+</head>
+
+<body>
+        <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="login.html">Log In</a>
+                        <a href="login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="support-hero">
+            <div class="container">
+                <h1>How can we help you today?</h1>
+                <p>Search for answers or browse our help topics below.</p>
+            </div>
+        </section>
+
+        <section class="support-grid">
+            <div class="support-card" onclick="window.location.href='booking.html'">
+                <i class="fa-solid fa-ticket"></i>
+                <h3>Booking & Trips</h3>
+                <p>Manage your upcoming reservations, tickets, and itineraries.</p>
+                <a href="#" class="btn btn-outline">Manage Trips</a>
+            </div>
+
+            <div class="support-card" onclick="window.location.href='login.html'">
+                <i class="fa-solid fa-lock"></i>
+                <h3>Account & Security</h3>
+                <p>Password resets, profile updates, and login issues.</p>
+                <a href="#" class="btn btn-outline">Account Settings</a>
+            </div>
+
+            <div class="support-card" onclick="window.location.href='faq.html'">
+                <i class="fa-solid fa-credit-card"></i>
+                <h3>Payments & Refunds</h3>
+                <p>Invoices, payment methods, and refund status.</p>
+                <a href="faq.html" class="btn btn-outline">Payment FAQs</a>
+            </div>
+        </section>
+
+        <section class="support-form-section">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--secondary);">Contact Support</h2>
+                <p style="color: var(--text-muted);">We typically respond within 24 hours.</p>
+            </div>
+
+            <form id="support-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Full
+                            Name</label>
+                        <input type="text" id="name" class="auth-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email
+                            Address</label>
+                        <input type="email" id="email" class="auth-input" placeholder="Your Email" required>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="topic" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">How can we
+                        help?</label>
+                    <select id="topic" class="auth-input" style="height: 50px;">
+                        <option>Itinerary Change</option>
+                        <option>Payment Issue</option>
+                        <option>Account Access</option>
+                        <option>Technical Problem</option>
+                        <option>Other Inquiry</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label for="message"
+                        style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Message</label>
+                    <textarea id="message" class="auth-input" rows="5" placeholder="Describe your issue..."
+                        style="height: auto; padding-top: 1rem;"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Send Message</button>
+            </form>
+        </section>
+
+        <section class="section" style="background: #f8fafc; text-align: center;">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">Popular Topics</h2>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                    <a href="faq.html" class="btn btn-outline"
+                        style="background: white; border-color: #e2e8f0; color: var(--text-muted);">How to cancel
+                        booking?</a>
+                    <a href="faq.html" class="btn btn-outline"
+                        style="background: white; border-color: #e2e8f0; color: var(--text-muted);">Where is my
+                        ticket?</a>
+                    <a href="faq.html" class="btn btn-outline"
+                        style="background: white; border-color: #e2e8f0; color: var(--text-muted);">Baggage
+                        allowance</a>
+                    <a href="faq.html" class="btn btn-outline"
+                        style="background: white; border-color: #e2e8f0; color: var(--text-muted);">Visa
+                        requirements</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/footer.js"></script>
+
+    
+    <script>
+        document.getElementById('support-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+                btn.style.background = 'var(--success)';
+                e.target.reset();
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'var(--primary)';
+                    btn.disabled = false;
+                }, 3000);
+            }, 1000);
+        });
+    </script>
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

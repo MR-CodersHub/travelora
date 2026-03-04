@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Bookings | TRAVELORA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-v2.svg">
+    <style>
+        .feature-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 1rem;
+            height: 1rem;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 0.45rem;
+            top: 25px;
+            height: calc(100% - 10px);
+            width: 2px;
+            background: var(--primary);
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+        <header>
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo-icon-v2.svg" alt="TRAVELORA Icon">
+                <span>TRAVELORA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../home2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav-indicator"></div>
+                <div class="mobile-nav-auth">
+                    <a href="services.html" class="btn btn-primary" style="width: 100%;">Explore</a>
+                </div>
+            </ul>
+            <button class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-auth">
+                <a href="services.html" class="btn btn-outline">Explore</a>
+                <div class="account-dropdown-wrapper">
+                    <div class="user-icon-btn"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="account-dropdown">
+                        <a href="login.html">Log In</a>
+                        <a href="login.html?tab=signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-header"
+            style="background: var(--secondary); padding: 100px 0 60px; color: white; text-align: center; position: relative; overflow: hidden;">
+            <div class="container" style="position: relative; z-index: 2;">
+                <a href="../index.html" class="btn btn-outline"
+                    style="position: absolute; top: -60px; left: 0; padding: 0.5rem 1rem; border-color: rgba(255,255,255,0.3); color: white; font-size: 0.9rem;">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Home
+                </a>
+                <span
+                    style="background: var(--primary); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Smart
+                    Technology</span>
+                <h1
+                    style="color: white; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; line-height: 1.1;">
+                    Seamless & <span style="color: var(--primary);">Fast Bookings</span></h1>
+                <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.6;">Skip
+                    the queues and the paperwork. Our AI-driven platform secures your flights, hotels, and tours in
+                    seconds.</p>
+            </div>
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(37, 99, 235, 0.2) 100%); z-index: 1;">
+            </div>
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1500"
+                alt="Airport Terminal"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.4;">
+        </section>
+
+        <!-- Content Section 1: Intro -->
+        <section class="section">
+            <div class="container"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+                        alt="Mobile Booking"
+                        style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);">
+                </div>
+                <div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">One Tap to the World</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
+                        Traditional travel booking is fragmented. You visit one site for flights, another for hotels,
+                        and a
+                        third for activities. TRAVELORA unifies everything.
+                    </p>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+                        Our proprietary booking engine connects directly to global distribution systems, ensuring you
+                        get
+                        real-time availability and the best rates instantly. No hidden fees, no redirection—just a
+                        smooth
+                        checkout process.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section 2: How It Works -->
+        <section class="section" style="background: var(--bg-white);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">A simple 3-step process to get you on your way.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-magnifying-glass"
+                            style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h3>1. Search & Compare</h3>
+                        <p class="text-muted">Enter your dates and destination. Our AI scans millions of options to find
+                            the best routes and stays.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-credit-card"
+                            style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                        <h3>2. Instant Confirm</h3>
+                        <p class="text-muted">Secure payment with one click. Receive instant confirmation and digital
+                            tickets immediately.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-suitcase-rolling"
+                            style="font-size: 2.5rem; color: var(--success); margin-bottom: 1rem;"></i>
+                        <h3>3. Pack & Go</h3>
+                        <p class="text-muted">Access your itinerary offline via our app. Get real-time updates on gates
+                            and check-ins.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section 3: FAQ -->
+        <section class="section">
+            <div class="container" style="max-width: 900px;">
+                <h2 class="section-title">Common Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Are the prices final?</h3>
+                        <p>Yes. The price you see at checkout is the final price. We guarantee no hidden booking fees.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How fast is the confirmation?</h3>
+                        <p>Instantly. Usually within 30 seconds of payment, you will receive your e-tickets via email
+                            and
+                            SMS.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I modify my booking later?</h3>
+                        <p>Yes, our "Manage Booking" portal allows easy modifications for dates and upgrades, subject to
+                            airline/hotel policies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="section"
+            style="background: var(--secondary); color: white; text-align: center; padding: 5rem 0;">
+            <div class="container">
+                <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1.5rem;">Start Your Journey</h2>
+                <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2.5rem;">Experience the fastest way to travel.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="../home2.html" class="btn btn-primary" style="padding: 1rem 3rem;">Try Platform Demo</a>
+                    <a href="../index.html" class="btn btn-outline"
+                        style="border-color: white; color: white; padding: 1rem 3rem;">Return Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/footer.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @media (max-width: 768px) {
+                    .page-header .btn-outline {
+                        position: static !important;
+                        display: inline-flex;
+                        margin-bottom: 1rem;
+                        border: 1px solid rgba(255,255,255,0.5) !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+<script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+
